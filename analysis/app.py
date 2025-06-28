@@ -25,7 +25,9 @@ import streamlit as st
 if 'Date' in df.columns:
     df['Date'] = pd.to_datetime(df['Date'])
 else:
-    df['Date'] = pd.to_datetime(df['Year'].astype(str) + df['WeekOfYear'].astype(str) + '0', format='%Y%W%w')
+    df['Date'] = pd.to_datetime(df['Date'])
+    df['Year'] = df['Date'].dt.year
+    df['WeekOfYear'] = df['Date'].dt.isocalendar().week
 
 # Get list of available years
 years_available = df['Year'].unique()
