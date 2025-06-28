@@ -18,6 +18,17 @@ with open("walmart_cleaned.csv", "wb") as f:
 # قراءة الملف
 df = pd.read_csv("walmart_cleaned.csv")
 
+import streamlit as st
+
+# اعرض أسماء الأعمدة الموجودة في الملف
+st.write("Columns in your CSV file:")
+st.write(df.columns.tolist())
+
+# اعرض أول 5 صفوف من الداتا
+st.write("First 5 rows of data:")
+st.write(df.head())
+
+
 # Prepare Date column (same as in your previous code)
 if 'Date' in df.columns:
     df['Date'] = pd.to_datetime(df['Date'])
