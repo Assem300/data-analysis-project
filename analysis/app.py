@@ -8,7 +8,7 @@ from seasonality_analysis import render_seasonality_analysis  # Import the Seaso
 import pandas as pd
 import requests
 # Load data
-url = "https://github.com/Assem300/data-analysis-walmart/releases/download/v1.0/walmart_cleaned.csv"
+url = "https://drive.google.com/file/d/1GynGMzotO2jodBTf6aThgsTI1I8AXkj2/view?usp=sharing"
 
 # تحميل الملف وحفظه
 response = requests.get(url)
@@ -19,14 +19,6 @@ with open("walmart_cleaned.csv", "wb") as f:
 df = pd.read_csv("walmart_cleaned.csv")
 
 import streamlit as st
-
-# اعرض أسماء الأعمدة الموجودة في الملف
-st.write("Columns in your CSV file:")
-st.write(df.columns.tolist())
-
-# اعرض أول 5 صفوف من الداتا
-st.write("First 5 rows of data:")
-st.write(df.head())
 
 
 # Prepare Date column (same as in your previous code)
