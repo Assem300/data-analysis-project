@@ -5,9 +5,18 @@ from overview import render_overview  # Import the Overview tab
 from sales_trends import render_sales_trends  # Import the Sales Trends tab
 from department_performance import render_department_performance  # Import the Department Performance tab
 from seasonality_analysis import render_seasonality_analysis  # Import the Seasonality Analysis tab
-
+import pandas as pd
+import requests
 # Load data
-df = pd.read_csv('../walmart_cleaned.csv')
+url = "https://github.com/Assem300/data-analysis-walmart/releases/download/v1.0/walmart_cleaned.csv"
+
+# تحميل الملف وحفظه
+response = requests.get(url)
+with open("walmart_cleaned.csv", "wb") as f:
+    f.write(response.content)
+
+# قراءة الملف
+df = pd.read_csv("walmart_cleaned.csv")
 
 # Prepare Date column (same as in your previous code)
 if 'Date' in df.columns:
